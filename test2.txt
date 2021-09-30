@@ -1,0 +1,115 @@
+#include <Orion.h> 
+#include <SoftwareSerial.h>
+Orion orion;  
+#define port      "1026" 
+#define server    "170.84.209.242"
+#define id        "PUCV"
+#define type      "clase_iot"
+#define attribute1 "Grupo8"
+#define attribute2 "humedad"
+void setup() {
+  orion.Conectar(server, port);
+  orion.Post(id,type,attribute1,attribute2,"0","0");
+}
+void loop() {
+  float valtemp = temperature();
+  float valhumy = humedad();
+  String tempconver= String(valtemp);
+  String humyconver= String(valhumy);
+  orion.Conectar(server, port);                    //Conectar a Puerto de Fiware
+  orion.Put(id, type, attribute1, tempconver);
+  delay(1000);
+  orion.Put(id, type, attribute2, humyconver);
+  delay(1000);
+  //orion.Get(id,type);                      //Obtener Info de Instancia
+  delay(7000);                             //Delay
+}
+#include <Orion.h> 
+#include <SoftwareSerial.h>
+Orion orion;  
+#define port      "1026" 
+#define server    "170.84.209.242"
+#define id        "PUCV"
+#define type      "clase_iot"
+#define attribute1 "Grupo8"
+#define attribute2 "humedad"
+void setup() {
+  orion.Conectar(server, port);
+  orion.Post(id,type,attribute1,attribute2,"0","0");
+}
+void loop() {
+  float valtemp = temperature();
+  float valhumy = humedad();
+  String tempconver= String(valtemp);
+  String humyconver= String(valhumy);
+  orion.Conectar(server, port);                    //Conectar a Puerto de Fiware
+  orion.Put(id, type, attribute1, tempconver);
+  delay(1000);
+  orion.Put(id, type, attribute2, humyconver);
+  delay(1000);
+  //orion.Get(id,type);                      //Obtener Info de Instancia
+  delay(7000);                             //Delay
+}
+#include <Orion.h> 
+#include <SoftwareSerial.h>
+Orion orion;  
+#define port      "1026" 
+#define server    "170.84.209.242"
+#define id        "PUCV"
+#define type      "clase_iot"
+#define attribute1 "Grupo8"
+#define attribute2 "humedad"
+void setup() {
+  orion.Conectar(server, port);
+  orion.Post(id,type,attribute1,attribute2,"0","0");
+}
+void loop() {
+
+  orion.Conectar(server, port);
+  orion.Put(id, type, attribute1, tempconver);
+  delay(1000);
+  orion.Put(id, type, attribute2, humyconver);
+
+}
+#include <Orion.h> 
+#include <SoftwareSerial.h>
+Orion orion;  
+#define port      "1026" 
+#define server    "170.84.209.242"
+#define id        "PUCV"
+#define type      "clase_iot"
+#define attribute1 "Grupo8"
+#define attribute2 "humedad"
+void setup() {
+  orion.Conectar(server, port);
+  orion.Post(id,type,attribute1,attribute2,"0","0");
+}
+void loop() {
+
+  orion.Conectar(server, port);
+  orion.Put(id, type, attribute1, tempconver);
+  delay(1000);
+  orion.Put(id, type, attribute2, humyconver);
+
+}
+#include <Orion.h> 
+#include <SoftwareSerial.h>
+Orion orion;  
+#define port      "1026" 
+#define server    "170.84.209.242"
+#define id        "PUCV"
+#define type      "clase_iot"
+#define attribute1 "Grupo8"
+#define attribute2 "humedad"
+void setup() {
+  orion.Conectar(server, port);
+  orion.Post(id,type,attribute1,attribute2,"0","0");
+}
+void loop() {
+
+  orion.Conectar(server, port);
+  orion.Put(id, type, attribute1, tempconver);
+  delay(1000);
+  orion.Put(id, type, attribute2, humyconver);
+
+}

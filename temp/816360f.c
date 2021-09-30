@@ -1,0 +1,1 @@
+  [{"post":"temperatura:1026\/v2\/entities","0":"Header:Content-type application\/json","1":"body","id":"temperaura","type":"1.5","2":""}].

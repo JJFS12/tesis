@@ -1,0 +1,8 @@
+{
+    "name":"lindevs/code_snippets",
+    "description":"Code snippets",
+    "license":"proprietary",
+    "require": {
+        "symfony/yaml": "^5.0"
+    }
+}
