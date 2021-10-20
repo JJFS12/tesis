@@ -19,47 +19,85 @@ class Devices{
    }
    public function addNewDevice($data){
      $name = $data['name'];
-     $readings = $data['readings'];
+     $readings = $_POST['readings'];
+     $units = $data['units'];
+     $max  = $data['max'];
+     $min  = $data['min'];
+     $ocba  = $data['ocba'];
+     $Protocol  = $data['protocol'];
+     $IoTAgent  = $data['agent'];
+
 
      if ($name == "" || $readings == "" ) {
        $msg = '<div class="alert alert-danger alert-dismissible mt-3" id="flash-msg">
  <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
  <strong>Error !</strong> Input fields must not be Empty !</div>';
          return $msg;
-     }elseif (strlen($readings) < 3) {
-       $msg = '<div class="alert alert-danger alert-dismissible mt-3" id="flash-msg">
- <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
- <strong>Error !</strong> Username is too short, at least 3 Characters !</div>';
-         return $msg;
+     }//elseif (strlen($readings) < 3) {
+       //$msg = '<div class="alert alert-danger alert-dismissible mt-3" id="flash-msg">
+ //<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+// <strong>Error !</strong> Username is too short, at least 3 Characters !</div>';
+//         return $msg;
 
 
-     }else{
+     else{
        $APIkey = implode('-', str_split(substr(strtolower(md5(microtime().rand(1000, 9999))), 0, 30), 6));
-       $sql = "INSERT INTO tbl_device(name, readings, APIkey, deviceid,units,max,min) VALUES(:name, :readings, :APIkey, :deviceid, :units, :max, :min)";
+       $sql = "INSERT INTO tbl_device(name,readings,APIkey,deviceid,units,max,min,ocba,Protocol,IoTAgent)
+       VALUES(:name, :readings, :APIkey, :deviceid, :units, :max, :min,:ocba,:Protocol,:IoTAgent)";
        $stmt = $this->db->pdo->prepare($sql);
        $stmt->bindValue(':name', $name);
-       $stmt->bindValue(':readings', $readings);
+
+       $stmt->bindValue(':readings', implode(",",$_POST['readings']));
+
        $stmt->bindValue(':APIkey',$APIkey);
-       $stmt->bindValue(':unitsy',$units);
+       $stmt->bindValue(':units',$units);
        $stmt->bindValue(':max',$max);
        $stmt->bindValue(':min',$min);
        $stmt->bindValue(':deviceid', Session::get('id'));
+       $stmt->bindValue(':ocba', $ocba);
+       $stmt->bindValue(':Protocol', $Protocol);
+       $stmt->bindValue(':IoTAgent',$IoTAgent);;
        $result = $stmt->execute();
-       if ($result) {
-         $msg = '<div class="alert alert-success alert-dismissible mt-3" id="flash-msg">
-   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-   <strong>Success !</strong> Wow, you have Registered Successfully !</div>';
-           return $msg;
-       }else{
-         $msg = '<div class="alert alert-danger alert-dismissible mt-3" id="flash-msg">
-   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-   <strong>Error !</strong> Something went Wrong !</div>';
-           return $msg;
-       }
+       $col_types = array();
+       array_push($readings,"link");
+       array_push($readings,"id");
+       for($i=0; $i<count($readings) ;$i=$i+1)
+        {
+          $col_types[$i] ='varchar(10)' ;
+        }
+        for($i=0; $i<count($readings)-1 ;$i=$i+1)
+        {
+          $col_types[$i].="," ;
+        }
+       $query = "CREATE TABLE $name( ";
+          for($i=0; $i<count($readings) ;$i=$i+1)
+          {
+            $query .= " $readings[$i]" . " " . " $col_types[$i]"  ;
+          }
+          $query .= " ); ";
+          $stmt = $this->db->pdo->prepare($query);
+          $stmt->execute();
 
+          $query = "ALTER TABLE `$name` ADD PRIMARY KEY (`id`)";
+          $stmt = $this->db->pdo->prepare($query);
+          $result = $stmt->execute();
+
+          $query= "ALTER TABLE `$name`  MODIFY id int(10)NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2";
+          $stmt = $this->db->pdo->prepare($query);
+          $stmt->execute();
+
+           if ($result) {
+             $msg = '<div class="alert alert-success alert-dismissible mt-3" id="flash-msg">
+             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+             <strong>Success !</strong> bien !</div>';
+           } else {
+             echo "Error ALTER table: " . $con->error;
+           }
      }
 
    }
+
+
    public function selectAllDeviceData(){
      $id =  Session::get('id');
 

@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `db_admin`
+
 --
 
 -- --------------------------------------------------------
@@ -35,15 +35,16 @@ CREATE TABLE `tbl_device` (
   `APIkey` varchar(200) NOT NULL,
   `units` varchar(200) NOT NULL,
   `max` varchar(200) NOT NULL,
-  `min` varchar(200) NOT NULL
+  `min` varchar(200) NOT NULL,
+  `deviceid` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `tbl_device`
 --
 
-INSERT INTO `tbl_device` (`id`, `name`, `readings`, `units`, `max`, `min`) VALUES
-(1, 'temperatura', 'temperaura', 'celcius', '100', '0');
+INSERT INTO `tbl_device` (`id`, `name`, `readings`, `units`, `max`, `min`,`deviceid`) VALUES
+(1, 'temperatura', 'temperaura', 'celcius', '100', '0',`22`);
 
 -- --------------------------------------------------------
 
@@ -61,8 +62,8 @@ CREATE TABLE `tbl_roles` (
 --
 
 INSERT INTO `tbl_roles` (`id`, `role`) VALUES
-(1, 'Admin'),
-(2, 'Editor'),
+(1, 'superAdmin'),
+(2, 'Admin'),
 (3, 'User');
 
 -- --------------------------------------------------------

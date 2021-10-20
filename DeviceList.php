@@ -1,5 +1,4 @@
 
-
 <?php
 include 'inc/header.php';
 
@@ -97,15 +96,16 @@ if (isset($username)) {
                         <td>
 
                           <?php if ( Session::get("roleid") == '1') {?>
-
+                            <a class="btn btn-success btn-sm
+                            " href="datos2.php?id=<?php echo $value->id;?>">datos</a>
                             <a class="btn btn-success btn-sm
                             " href="FIWARE.php?id=<?php echo $value->id;?>">FIWARE</a>
                             <a
                              class="btn btn-success btn-sm"
-                             href="agent.php?path=test.yaml">Download</a>
+                             href="FIWARE_Code.php?id=<?php echo $value->id;?>">Fiware Code</a>
                              <a
                               class="btn btn-success btn-sm"
-                              href="code.php?path=test2.txt">Download 2</a>
+                              href="Device_Code.php?id=<?php echo $value->id;?>">Device Code</a>
                             <a class="btn btn-info btn-sm " href="profile.php?id=<?php echo $value->id;?>">Edit</a>
                             <a onclick="return confirm('Are you sure To Delete ?')" class="btn btn-danger
                     <?php if (Session::get("id") == $value->id) {

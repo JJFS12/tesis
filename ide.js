@@ -12,7 +12,7 @@ function changeLanguage() {
 
     if(language == 'c' || language == 'cpp')editor.session.setMode("ace/mode/c_cpp");
     else if(language == 'php')editor.session.setMode("ace/mode/php");
-    else if(language == 'python')editor.session.setMode("ace/mode/python");
+    else if(language == 'yaml')editor.session.setMode("ace/mode/yaml");
     else if(language == 'node')editor.session.setMode("ace/mode/javascript");
 }
 

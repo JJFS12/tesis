@@ -1,0 +1,1 @@
+temperatura327.83-humedad327.83
