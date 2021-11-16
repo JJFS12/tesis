@@ -59,8 +59,7 @@ class Devices{
        $stmt->bindValue(':IoTAgent',$IoTAgent);;
        $result = $stmt->execute();
        $col_types = array();
-       array_push($readings,"link");
-       array_push($readings,"id");
+       array_push($readings,"link","cur_time","id");
        for($i=0; $i<count($readings) ;$i=$i+1)
         {
           $col_types[$i] ='varchar(10)' ;
@@ -81,7 +80,7 @@ class Devices{
           $query = "ALTER TABLE `$name` ADD PRIMARY KEY (`id`)";
           $stmt = $this->db->pdo->prepare($query);
           $result = $stmt->execute();
-
+//ALTER TABLE `device1` CHANGE `cur_time` `cur_time` TIMESTAMP(10) NULL DEFAULT NULL;
           $query= "ALTER TABLE `$name`  MODIFY id int(10)NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2";
           $stmt = $this->db->pdo->prepare($query);
           $stmt->execute();

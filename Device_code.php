@@ -3,7 +3,7 @@
 use Symfony\Component\Yaml\Yaml;
 include 'inc/header.php';
 Session::CheckSession();
-$i=$_GET['id'];
+$is=$_GET['id'];
  ?>
 
 
@@ -14,7 +14,7 @@ $i=$_GET['id'];
         <div class="card-body">
 
     <?php
-    $getUinfo = $devices->getDeviceInfoById($i);
+    $getUinfo = $devices->getDeviceInfoById($is);
     if ($getUinfo) {
 
      ?>
@@ -42,22 +42,24 @@ $i=$_GET['id'];
                 $c2="";
                 $cont=0;
                 $content2 = "";
-             
+              /*
                 $content2 .= " #include ".'"ESP8266WiFi.h"'."\n";
                 $content2 .= "#include ".'"WiFiClient.h"'."\n";
                 $content2 .= "#include". '"ESP8266WebServer.h"'."\n";
                 $content2 .= "#include". '"ESP8266HTTPClient.h"'."\n";
                 $content2 .= 'const char* ssid = "YOUR SSID NAME";'."\n";
                 $content2 .= 'const char* password = "SSID PASSWORD";'."\n";
-                $content2 .= 'const char *host = "http://192.168.0.12/";'."\n";
+                $content2 .= 'const char *host = "http://192.168.0.11/";'."\n";
                 $content2 .= "const char *server=  ".'"'.$getUinfo->ocba.'"'.";"."\n";
-                $content2 .= "String id=".$i.";"."\n";
                 $content2 .= "const char type     clase_iot;"."\n";
+                */
                 $n=explode(",",$getUinfo->readings);
                 for ($i=0; $i < count($n) ; $i++) { 
-                  $content2 .= "#define attribute".$i."=".$n[$i].";"."\n";
+                  $content2 .= "double ".$n[$i].";"."\n";
                   $cont+=1;
                 }
+                $content2 .= 'String id="'.$is.'";'."\n";
+                /*
                 $content2 .= "int cont=".$cont.";"."\n";
                 $content2 .= "void setup() {"."\n";
                   $content2 .= "Serial.begin(115200);"."\n";
@@ -75,14 +77,17 @@ $i=$_GET['id'];
                   $content2 .= 'Serial.print("IP address: ");'."\n";
                   $content2 .= 'Serial.println(WiFi.localIP());'."\n";
                 $content2 .= "  }"."\n";
+                */
                 $content2 .= "void loop() {"."\n";
+                  
                   $content2 .= "HTTPClient http;"."\n";
                   $content2 .= "WiFiClient client;"."\n";
+                  
                   $content2 .= "String postData;"."\n";
                   $content2 .= "String Link;"."\n";
                   $content2 .= "String param;"."\n";
                   for ($i=0; $i < count($n) ; $i++) { 
-                    $c2 .= '"'.'&'.$n[$i].'"'."+String (attribute".$i.")";
+                    $c2 .= "+".'"'.'&'.$n[$i].'"'."+String ($n[$i])";
 
                   }
                   $content2 .= "param=". $c2.";"."\n";

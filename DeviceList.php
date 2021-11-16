@@ -99,7 +99,7 @@ if (isset($username)) {
                             <a class="btn btn-success btn-sm
                             " href="datos2.php?id=<?php echo $value->id;?>">datos</a>
                             <a class="btn btn-success btn-sm
-                            " href="FIWARE.php?id=<?php echo $value->id;?>">FIWARE</a>
+                            " href="FIWARE.php?id=<?php echo $value->id;?>,&readings=<?php echo $value->readings;?>&name=<?php echo $value->name;?>">grafica</a>
                             <a
                              class="btn btn-success btn-sm"
                              href="FIWARE_Code.php?id=<?php echo $value->id;?>">Fiware Code</a>

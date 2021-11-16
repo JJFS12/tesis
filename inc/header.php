@@ -127,7 +127,7 @@ if (isset($_GET['action']) && $_GET['action'] == 'logout') {
 
               ">
 
-                <a class="nav-link" href="FIWARE.php?id=<?php echo Session::get("id"); ?>"><i class="fab fa-500px mr-2"></i>FIWARE <span class="sr-only">(current)</span></a>
+               
               </li>
             <?php  } ?>
             <li class="nav-item

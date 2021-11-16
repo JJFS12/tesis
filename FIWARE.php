@@ -1,146 +1,102 @@
 <?php
-include 'inc/header.php';
-Session::CheckSession();
-$i=$_GET['id'];
+  include 'inc/header.php';
+ 
+  $id=$_GET['id'];
+  $lec=$_GET['readings'];
+  $name=$_GET['name'];
  ?>
 
 <?php
 
-if (isset($_GET['id'])) {
-  $userid = preg_replace('/[^a-zA-Z0-9-]/', '', (int)$_GET['id']);
+
+   $servername = "localhost";
+   $username = "root";
+   $password = "";
+   $dbname = "db_admin";
+   
+   $cadena=explode(",", $lec);
+   // Create connection
+   $conn = new mysqli($servername, $username, $password, $dbname);
+   // Check connection
+   if ($conn->connect_error) {
+       die("Database Connection failed: " . $conn->connect_error);
+   }
+
+   $result = mysqli_query($conn, "SELECT *FROM  $name ");
+   $chart_data = '';
+while($row = mysqli_fetch_array($result))
+{
+
+ //$chart_data .= "{ year:'".$row["cur_time"]."', temperatura:".$row["temperatura"].", humedad:".$row["humedad"]."},";
+ $chart_data .= "{ year:'".$row["cur_time"]."' ";
+  for ($i=0; $i <count($cadena) ; $i++) { 
+      $temp2=$cadena[$i];
+
+      $chart_data .=", $temp2:".$row[$temp2]." ";
+      
+     }
+ $chart_data.="},";
 
 }
+$chart_data = substr($chart_data, 0, -1);
+
+?>
 
 
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['update'])) {
-  $updateUser = $users->updateUserByIdInfo($userid, $_POST);
+<!DOCTYPE html>
+<html>
+ <head>
+  <title>chart with PHP & Mysql | lisenme.com </title>
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.css">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/morris.js/0.5.1/morris.min.js"></script>
+  
+ </head>
+ <body>
+  <br /><br />
+  <div class="container" style="width:900px;">
+   <h2 align="center"><?php echo $lec; ?></h2>
+   <h3 align="center">Char</h3>   
+   <br /><br />
+   <div id="chart"></div>
+  </div>
+ </body>
+</html>
 
-}
-if (isset($updateUser)) {
-  echo $updateUser;
-}
+<script>
+Morris.Line({
+ element : 'chart',
+ data:[<?php echo $chart_data; ?>],
+ xkey:'year',
+ ykeys:[<?php $cadena=explode(",", $lec);
+        $nueva="";
+        for ($i=0; $i < count($cadena); $i++) { 
+          $nueva.="'";
+          $nueva.=$cadena[$i];
+          $nueva.="'";
+          $nueva.=",";
+          
+        }
+        $nueva = substr($nueva, 0, -1);
+        echo $nueva?>],
+ labels:[<?php $cadena=explode(",", $lec);
+        $nueva="";
+        for ($i=0; $i < count($cadena); $i++) { 
+          $nueva.="'";
+          $nueva.=$cadena[$i];
+          $nueva.="'";
+          $nueva.=",";
+          
+        }
+        $nueva = substr($nueva, 0, -1);
+        echo $nueva?>],
+ hideHover:'auto',
+ stacked:true
+});
+</script>
 
-
-
-
- ?>
-
- <div class="card ">
-   <div class="card-header">
-          <h3>FIWARE OCB <span class="float-right"> <a href="index.php" class="btn btn-primary">Back</a> </h3>
-        </div>
-        <div class="card-body">
-
-    <?php
-    $getUinfo = $devices->getDeviceInfoById($i);
-    if ($getUinfo) {
-
-
-
-
-
-
-     ?>
-
-
-          <div style="width:600px; margin:0px auto">
-
-          <form class="" action="" method="POST">
-              <div class="form-group">
-                <label for="name">Device name</label>
-                <input type="text" name="name" value="<?php echo $getUinfo->name; ?>" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="username">readings</label>
-                <input type="text" name="username" value="<?php echo $getUinfo->readings; ?>" class="form-control">
-              </div>
-
-              <div class="form-group">
-                <label for="username">readings</label>
-                <input type="text" name="username" value="<?php echo $getUinfo->readings; ?>" class="form-control">
-              </div>
-              <div class="form-group">
-                <label for="username">Orion Context Broker address</label>
-                <input type="text" name="username" value="<?php echo $getUinfo->APIkey; ?>" class="form-control">
-              </div>
-              <?php
-                  // data strored in array
-                  $array = Array (
-                      "0" => Array (
-                        "post"=>$getUinfo->name .':1026/v2/entities',
-                        "Header:Content-type application/json",
-                        "body",
-                        "id" => $getUinfo->readings,
-                        "type" => $getUinfo->readings,
-                        $getUinfo->APIkey,
-                        "type"=> 'float',
-                        "type"=>'1.5'
-                      )
-                      );
-
-                      // encode array to json
-                      $json = json_encode($array);
-                      $bytes = file_put_contents("myfile.json", $json);
-
-
-              ?>
-
-              <div class="form-group">
-              <div class="bg-card dark shadow rounded mb-4 p-4 ng-star-inserted">
-
-                <link rel="stylesheet" href="css/style2.css" />
-                <div class="header"> Orion context broker entitie </div>
-                <div class="control-panel">
-
-                </div>
-                <div class="editor" id="editor"> <?php echo " $json." ?></div>
-
-                <div class="button-container">
-                  <button class="btn" onclick="executeCode()"> submit </button>
-                </div>
-
-                <div class="output"></div>
-
-                <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-                <script src="lib/ace.js"></script>
-                <script src="lib/theme-monokai.js"></script>
-                <script src="ide.js"></script>
-              </div>
-              </div>
-
-
-
-              <div class="form-group">
-                <button type="submit" name="update" class="btn btn-success">submit</button>
-                <a class="btn btn-primary" href="changepass.php?id=<?php echo $getUinfo->id;?>">Delete</a>
-              </div>
-            <?php } elseif(Session::get("roleid") == '2') {?>
-
-
-              <div class="form-group">
-                <button type="submit" name="update" class="btn btn-success">Submit</button>
-
-              </div>
-
-              <?php   }else{ ?>
-                  <div class="form-group">
-
-                    <a class="btn btn-primary" href="index.php">Submit</a>
-                  </div>
-                <?php } ?>
-
-
-          </form>
-        </div>
-
-
-
-
-      </div>
-    </div>
-
-
-  <?php
+<?php
   include 'inc/footer.php';
 
-  ?>
+?>
