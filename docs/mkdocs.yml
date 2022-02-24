@@ -1,0 +1,14 @@
+site_name: Dcoumentación de Sistema para la conexión automatica de sensores IoT a la plataforma FIWARE
+
+nav: 
+  - Introducción: 'index.md'
+  - 'Sistema':
+    - Módulo de gestor: 'gestor.md'
+    - Módulo de conexión: 'conexión.md'
+    - Módulo de receptor de información: 'receptor.md'
+  - 'Manual de usuario':
+    - Sistema web: 'sistema.md'
+    - Servidor FIWARE: 'servidor.md'
+
+
+theme: readthedocs

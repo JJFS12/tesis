@@ -69,7 +69,7 @@ $id=$_GET["id"];
             }
     echo "<table>";
 
-      $result = mysqli_query($conn, "SELECT * FROM device");
+      $result = mysqli_query($conn, "SELECT * FROM $name");
       if($result){
          $rowcount=mysqli_num_rows($result);
       }
@@ -101,7 +101,7 @@ $id=$_GET["id"];
         echo 'Error:' . curl_error($curl); die;
         }
         curl_close($curl);
-        $result = mysqli_query($conn, "SELECT * FROM device");
+        $result = mysqli_query($conn, "SELECT * FROM $name");
         $contador=0;
         while($res = mysqli_fetch_array($result)){
             $id=$res['id'];

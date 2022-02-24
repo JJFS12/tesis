@@ -27,10 +27,7 @@ $i=$_GET['id'];
                 <label for="name">Device name</label>
                 <input type="text" name="name" value="<?php echo $getUinfo->name; ?>" class="form-control">
               </div>
-              <div class="form-group">
-                <label for="username">readings</label>
-                <input type="text" name="readings" value="<?php echo $getUinfo->readings; ?>" class="form-control">
-              </div>
+
 
               <div class="form-group">
                 <label for="username">readings</label>
@@ -262,7 +259,7 @@ $i=$_GET['id'];
                 <div class="editor" id="editor" > <?php echo " $yaml " ?></div>
 
                 <div class="button-container">
-                  <button class="btn" onclick="executeCode()"> download </button>
+                <button><a href="download.php?path=docker-compose.yaml"> download</a></button>
                 </div>
 
                 <div class="output"></div>
@@ -277,23 +274,13 @@ $i=$_GET['id'];
 
 
 
-              <div class="form-group">
-                <button type="submit" name="update" class="btn btn-success">submit</button>
-                <a class="btn btn-primary" href="changepass.php?id=<?php echo $getUinfo->id;?>">Delete</a>
-              </div>
+
             <?php } elseif(Session::get("roleid") == '2') {?>
 
 
-              <div class="form-group">
-                <button type="submit" name="update" class="btn btn-success">n</button>
-
-              </div>
 
               <?php   }else{ ?>
-                  <div class="form-group">
-
-                    <a class="btn btn-primary" href="index.php">Submit</a>
-                  </div>
+                
                 <?php } ?>
 
 

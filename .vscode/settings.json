@@ -1,4 +1,5 @@
 {
     "C_Cpp.errorSquiggles": "Enabled",
-    "editor.wordWrap":"wordWrapColumn"
+    "editor.wordWrap": "wordWrapColumn",
+    "cmake.configureOnOpen": false
 }

@@ -26,10 +26,7 @@ if (isset($register)) {
             <div style="width:600px; margin:0px auto">
 
             <form class="" action="" method="post">
-                <div class="form-group pt-3">
-                  <label for="name">Your name</label>
-                  <input type="text" name="name"  class="form-control">
-                </div>
+
                 <div class="form-group">
                   <label for="username">Your username</label>
                   <input type="text" name="username"  class="form-control">

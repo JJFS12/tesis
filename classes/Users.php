@@ -41,7 +41,7 @@ class Users{
 
   // User Registration Method
   public function userRegistration($data){
-    $name = $data['name'];
+    //$name = $data['name'];
     $username = $data['username'];
     $email = $data['email'];
     $roleid = $data['roleid'];
@@ -49,7 +49,7 @@ class Users{
 
     $checkEmail = $this->checkExistEmail($email);
 
-    if ($name == "" || $username == "" || $email == "" || $password == "") {
+    if ($username == "" || $email == "" || $password == "") {
       $msg = '<div class="alert alert-danger alert-dismissible mt-3" id="flash-msg">
 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 <strong>Error !</strong> Please, User Registration field must not be Empty !</div>';
@@ -76,11 +76,6 @@ class Users{
 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 <strong>Error !</strong> Your Password Must Contain At Least 1 Number !</div>';
         return $msg;
-    }elseif (filter_var($email, FILTER_VALIDATE_EMAIL === FALSE)) {
-      $msg = '<div class="alert alert-danger alert-dismissible mt-3" id="flash-msg">
-<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-<strong>Error !</strong> Invalid email address !</div>';
-        return $msg;
     }elseif ($checkEmail == TRUE) {
       $msg = '<div class="alert alert-danger alert-dismissible mt-3" id="flash-msg">
 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
@@ -88,14 +83,14 @@ class Users{
         return $msg;
     }else{
 
-      $sql = "INSERT INTO tbl_users(name, username, email, password, roleid) VALUES(:name, :username, :email, :password, :roleid)";
+      $sql = "INSERT INTO tbl_users( username, email, password) VALUES( :username, :email, :password)";
       $stmt = $this->db->pdo->prepare($sql);
-      $stmt->bindValue(':name', $name);
+      //$stmt->bindValue(':name', $name);
       $stmt->bindValue(':username', $username);
       $stmt->bindValue(':email', $email);
       $stmt->bindValue(':password', SHA1($password));
 
-      $stmt->bindValue(':roleid', $roleid);
+     
       $result = $stmt->execute();
       if ($result) {
         $msg = '<div class="alert alert-success alert-dismissible mt-3" id="flash-msg">
@@ -120,7 +115,7 @@ class Users{
   }
   // Add New User By Admin
   public function addNewUserByAdmin($data){
-    $name = $data['name'];
+    //$name = $data['name'];
     $username = $data['username'];
     $email = $data['email'];
 
@@ -129,7 +124,7 @@ class Users{
 
     $checkEmail = $this->checkExistEmail($email);
 
-    if ($name == "" || $username == "" || $email == "" || $password == "") {
+    if ($username == "" || $email == "" || $password == "") {
       $msg = '<div class="alert alert-danger alert-dismissible mt-3" id="flash-msg">
 <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
 <strong>Error !</strong> Input fields must not be Empty !</div>';
@@ -169,7 +164,7 @@ class Users{
 
       $sql = "INSERT INTO tbl_users(name, username, email, password,roleid) VALUES(:name, :username, :email, :password,:roleid)";
       $stmt = $this->db->pdo->prepare($sql);
-      $stmt->bindValue(':name', $name);
+      //$stmt->bindValue(':name', $name);
       $stmt->bindValue(':username', $username);
       $stmt->bindValue(':email', $email);
       $stmt->bindValue(':password', SHA1($password));
@@ -267,7 +262,7 @@ class Users{
           Session::set('login', TRUE);
           Session::set('id', $logResult->id);
           Session::set('roleid', $logResult->roleid);
-          Session::set('name', $logResult->name);
+          //Session::set('name', $logResult->name);
           Session::set('email', $logResult->email);
           Session::set('username', $logResult->username);
           Session::set('logMsg', '<div class="alert alert-success alert-dismissible mt-3" id="flash-msg">
@@ -310,7 +305,7 @@ class Users{
   //
   //   Get Single User Information By Id Method
     public function updateUserByIdInfo($userid, $data){
-      $name = $data['name'];
+      //$name = $data['name'];
       $username = $data['username'];
       $email = $data['email'];
 
@@ -318,7 +313,7 @@ class Users{
 
 
 
-      if ($name == "" || $username == ""|| $email == "") {
+      if ($username == ""|| $email == "") {
         $msg = '<div class="alert alert-danger alert-dismissible mt-3" id="flash-msg">
   <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
   <strong>Error !</strong> Input Fields must not be Empty !</div>';
@@ -345,7 +340,7 @@ class Users{
           roleid = :roleid
           WHERE id = :id";
           $stmt= $this->db->pdo->prepare($sql);
-          $stmt->bindValue(':name', $name);
+          //$stmt->bindValue(':name', $name);
           $stmt->bindValue(':username', $username);
           $stmt->bindValue(':email', $email);
 

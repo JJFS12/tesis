@@ -105,38 +105,38 @@ if (isset($username)) {
                              href="FIWARE_Code.php?id=<?php echo $value->id;?>">Fiware Code</a>
                              <a
                               class="btn btn-success btn-sm"
-                              href="Device_Code.php?id=<?php echo $value->id;?>">Device Code</a>
-                            <a class="btn btn-info btn-sm " href="profile.php?id=<?php echo $value->id;?>">Edit</a>
+                              href="temporal.php?id=<?php echo $value->id;?>">Device Code</a>
+                            <a class="btn btn-info btn-sm " href="profile.php?id=<?php echo $value->id;?>"></a>
                             <a onclick="return confirm('Are you sure To Delete ?')" class="btn btn-danger
                     <?php if (Session::get("id") == $value->id) {
                       echo "disabled";
                     } ?>
-                             btn-sm " href="?remove=<?php echo $value->id;?>">Remove</a>
+                             btn-sm " href="?remove=<?php echo $value->id;?>"></a>
 
 
                         <?php  }elseif(Session::get("id") == $value->id  && Session::get("roleid") == '2'){ ?>
-                          <a class="btn btn-success btn-sm " href="profile.php?id=<?php echo $value->id;?>">View</a>
-                          <a class="btn btn-info btn-sm " href="profile.php?id=<?php echo $value->id;?>">Edit</a>
+                          <a class="btn btn-success btn-sm " href="profile.php?id=<?php echo $value->id;?>"></a>
+                          <a class="btn btn-info btn-sm " href="profile.php?id=<?php echo $value->id;?>"></a>
                         <?php  }elseif( Session::get("roleid") == '2'){ ?>
                           <a class="btn btn-success btn-sm
                           <?php if ($value->roleid == '1') {
                             echo "disabled";
                           } ?>
-                          " href="profile.php?id=<?php echo $value->id;?>">View</a>
+                          " href="profile.php?id=<?php echo $value->id;?>"></a>
                           <a class="btn btn-info btn-sm
                           <?php if ($value->roleid == '1') {
                             echo "disabled";
                           } ?>
-                          " href="profile.php?id=<?php echo $value->id;?>">Edit</a>
+                          " href="profile.php?id=<?php echo $value->id;?>"></a>
                         <?php }elseif(Session::get("id") == $value->id  && Session::get("roleid") == '3'){ ?>
-                          <a class="btn btn-success btn-sm " href="profile.php?id=<?php echo $value->id;?>">View</a>
-                          <a class="btn btn-info btn-sm " href="profile.php?id=<?php echo $value->id;?>">Edit</a>
+                          <a class="btn btn-success btn-sm " href="profile.php?id=<?php echo $value->id;?>"></a>
+                          <a class="btn btn-info btn-sm " href="profile.php?id=<?php echo $value->id;?>"></a>
                         <?php }else{ ?>
                           <a class="btn btn-success btn-sm
                           <?php if ($value->roleid == '1') {
                             echo "disabled";
                           } ?>
-                          " href="profile.php?id=<?php echo $value->id;?>">View</a>
+                          " href="profile.php?id=<?php echo $value->id;?>"></a>
 
                         <?php } ?>
 
