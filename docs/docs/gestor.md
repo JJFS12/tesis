@@ -14,6 +14,7 @@ paso 2 una vez ingresados los datos dar click en el boton de registrar.
     alt="registro"
     style="alang: center" />
 
+
 ## Inicio de sesión
 El inicio de sesión consta de ingresar los datos que se dieron de alta en el registro de usuario.
 
