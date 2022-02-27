@@ -11,4 +11,9 @@ Introducción
 
    gestor
 
+   conexión
+
+   receptor
+
+   servidor
 
