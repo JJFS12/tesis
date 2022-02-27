@@ -2,11 +2,13 @@ Introducción
 ============
 
 .. toctree::
-   :caption: Introduccion
+   :caption: Introduction
 
    introducción
 
 .. toctree::
-   :caption: manual de usuario
+   :caption: Guía
 
    gestor
+
+
