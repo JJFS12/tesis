@@ -7,7 +7,7 @@ Introducción
    introducción
 
 .. toctree::
-   :caption: Guía
+   :caption: Manual de usuario
 
    gestor
 
