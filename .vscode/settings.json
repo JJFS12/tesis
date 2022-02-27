@@ -1,5 +1,6 @@
 {
     "C_Cpp.errorSquiggles": "Enabled",
     "editor.wordWrap": "wordWrapColumn",
-    "cmake.configureOnOpen": false
+    "cmake.configureOnOpen": false,
+    "restructuredtext.confPath": ""
 }

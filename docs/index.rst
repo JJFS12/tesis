@@ -10,6 +10,3 @@ Introducción
    :caption: manual de usuario
 
    gestor
-   conexión
-   receptor
-   servidor
