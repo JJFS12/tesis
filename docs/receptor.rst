@@ -1,4 +1,4 @@
-Descripción
+receptor
 ===========
 
 El módulo receptor de información, es el encargado de recibir los datos

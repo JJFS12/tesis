@@ -1,4 +1,4 @@
-Descripción
+conexiones
 ===========
 
 El módulo de conexión tiene como objetivo generar los códigos necesarios

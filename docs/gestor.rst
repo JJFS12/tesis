@@ -1,4 +1,4 @@
-Módulo gestor
+gestor
 =============
 
 Este módulo tiene como objetivo gestionar las características de los
