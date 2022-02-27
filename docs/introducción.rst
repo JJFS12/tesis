@@ -63,7 +63,7 @@ antecedentes
 Internet de las cosas
 ~~~~~~~~~~~~~~~~~~~~~
 
-Plataforma
+
 ~~~~~~~~~~
 
 Agentes IoT
