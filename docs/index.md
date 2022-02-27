@@ -12,7 +12,7 @@ Este artículo está organizado de la siguiente forma: La sección 2 muestra los
      style="alang: center" />
 
 
-## palabras clave
+
 
 * `FIWARE` - plataforma en la nube.
 * `Internet de las cosas` - grupo de dispositivos interconectados que comparten información.
