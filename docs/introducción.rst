@@ -49,7 +49,9 @@ Sección 5 muestra el sistema de software que implementa nuestro enfoque
 propuesto y, finalmente, la Sección 6 detalla las conclusiones y el
 trabajo futuro.
 
-.. image:: arquit.png
+.. image:: docs/arquit.png
+
+.. image:: tesis/docs/arquit.png
 
 palabras clave
 --------------
