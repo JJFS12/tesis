@@ -34,20 +34,20 @@ Paso 1- dar click en botón código arduino del dispositivo.
 Paso 2- dar click en el botón seleccionar archivo, el cual abre un
 explorador de archivos, donde el usuario debe subir su código arduino.
  
-.. image:: images/archivo.PNG
+.. image:: images/archivo.png
 
 
 paso 3- dar click en el botón leer contenido, el cual despliega el
 código arduino del usuario y agrega el código necesario para enviar
 datos desde el dispositivo al sistema.
  
-.. image:: images/leer.PNG
+.. image:: images/leer.png
 
 
 paso 4- dar click en el botón descargar el cual permite descargar el
 código completo para su posterior compilación.
  
-.. image:: images/descargar.PNG
+.. image:: images/descargar.png
 
 
 El código descargado debe de ser compilado en el ide de arduino para
@@ -64,14 +64,14 @@ Entidades FIWARE.
  
 Paso 1 Paso 1- dar click en botón código FIWARE del dispositivo.
 
-.. image:: images/fiware.PNG
+.. image:: images/fiware.png
 
  
 El sistema despliega la información del dispositivo así como el código
 en yaml necesario para realizar la conexión con fiware.
 
-.. image:: images/codigo fiware.PNG
+.. image:: images/codigo fiware.png
 
 Paso 2 dar click en el botón de descargar.
 
-.. image:: images/descargar 2.PNG
+.. image:: images/descargar 2.png

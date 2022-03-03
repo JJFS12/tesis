@@ -21,7 +21,7 @@ el archivo .yml)
  
 paso 1- Dar click en el botón de datos.
 
-.. image:: images/datos.PNG
+.. image:: images/datos.png
 
  
 EL sistema despliega una tabla con las lecturas que se están recibiendo
@@ -51,7 +51,7 @@ datos almacenados en la base de datos de CrateDB.
  
 Paso 2 dar click en el botón de gráfica del dispositivo.
 
-.. image:: images/grafana.PNG
+.. image:: images/grafana.png
 
  
 **Si la gráfica no es desplegada como en la imagen de arriba, seguir los
