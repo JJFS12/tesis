@@ -27,7 +27,7 @@ paso 1- Dar click en el botón de datos.
 EL sistema despliega una tabla con las lecturas que se están recibiendo
 del dispositivo desde arduino.
 
-.. image:: images/datos 2.PNG
+.. image:: images/datos2.PNG
 
  
 Submódulo generador de suscripciones
@@ -38,7 +38,7 @@ entidades NGSI creadas en el módulo de conexión, para generar las
 suscripciones al orion context broker para guardar los datos históricos
 del dispositivo en una base de datos creada en CrateDB.
  
-.. image:: images/cratedb (2).PNG
+.. image:: images/cratedb.PNG
 
 
 Submódulo de conexión con grafana

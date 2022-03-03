@@ -32,7 +32,7 @@ en el registro de usuario.
  
 paso 3 ingresar el correo y contraseña.
 
-.. image:: images/login 2.PNG
+.. image:: images/login2.PNG
 
  
 paso 4 dar click en el botón login.
