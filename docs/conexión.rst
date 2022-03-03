@@ -72,7 +72,6 @@ en yaml necesario para realizar la conexión con fiware.
 
 .. image:: images/codigo fiware.PNG
 
- 
 Paso 2 dar click en el botón de descargar.
 
 .. image:: images/descargar 2.PNG
