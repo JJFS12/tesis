@@ -19,39 +19,60 @@ encargado de generar el código para las entidades NGSI teniendo como
 objetivo utilizar la información dada de alta por el usuario para
 generar el código de cada entidad NGSI.
 
-Generador de código de envio de información
+Generador de código de envío de información
 -------------------------------------------
-
+ 
 El submódulo generador de código para envío de información es el
 encargado de generar el código arduino para el envío de información del
 dispositivo físico al sistema web.
+ 
+Paso 1- dar click en botón código arduino del dispositivo.
 
-Paso 1- dar click en boton codigo arduino del dispositivo.
+.. image:: images/device2.PNG
 
-Paso 2- dar ckick en el boton seleccionar archivo, el cual abre un
-explorador de archvos, donde el usuario debe subir su codigo arduino.
+ 
+Paso 2- dar click en el botón seleccionar archivo, el cual abre un
+explorador de archivos, donde el usuario debe subir su código arduino.
+ 
+.. image:: images/archivo.PNG
 
-paso 3- dar click en el boton leer contenido, el cual despliega el
+
+paso 3- dar click en el botón leer contenido, el cual despliega el
 código arduino del usuario y agrega el código necesario para enviar
 datos desde el dispositivo al sistema.
+ 
+.. image:: images/leer.PNG
 
-paso 4- dar click en el boton descargar el cual permite descargar el
-codigo completo para su posterior compilacion.
 
-El codigo descargado debe de ser compilado en el ide de arduino para
-empezar a enviar datos.
+paso 4- dar click en el botón descargar el cual permite descargar el
+código completo para su posterior compilación.
+ 
+.. image:: images/descargar.PNG
+
+
+El código descargado debe de ser compilado en el ide de arduino para
+empezar a enviar datos
+
 
 Generador de código de conexión con FIWARE
 ------------------------------------------
-
+ 
 El submódulo generador de código para la conexión con FIWARE es el
 encargado de generar el código para la conexión entre el dispositivo y
 FIWARE, para enviar los datos de los sensores representados en las
 Entidades FIWARE.
+ 
+Paso 1 Paso 1- dar click en botón código FIWARE del dispositivo.
 
-Paso 1 Paso 1- dar click en boton código FIWARE del dispositivo.
+.. image:: images/fiware.PNG
 
-El sistema despliega la informacion del dispositivo asi como el codigo
-en yaml necerario para realizar la conexión con fiware.
+ 
+El sistema despliega la información del dispositivo así como el código
+en yaml necesario para realizar la conexión con fiware.
 
-Paso 2 dar click en el boton de descargar.
+.. image:: images/codigo fiware.PNG
+
+ 
+Paso 2 dar click en el botón de descargar.
+
+.. image:: images/descargar 2.PNG
