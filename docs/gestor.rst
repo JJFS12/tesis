@@ -21,25 +21,33 @@ eusuario, correo y contraseña.
 
 paso 2 una vez ingresados los datos dar click en el boton de registrar.
 
+.. image:: images/registro.PNG
+
+
 Inicio de sesión
 ----------------
-
+ 
 El inicio de sesión consta de ingresar los datos que se dieron de alta
 en el registro de usuario.
-
+ 
 paso 3 ingresar el correo y contraseña.
 
-paso 4 dar click en el boton login.
+.. image:: images/login.PNG
 
+ 
+paso 4 dar click en el botón login.
+ 
 Registro de dispositivo
 -----------------------
-
-El registro de dispositivos cosnta de otorgar la información necesaria
-del dispositivo como: nombre, direccion del orion contex broker,
-protocolo de cumunicación, agente IoT y las lecturas.
-
-Paso 5 dar click en el boton agregar dispositivo.
-
+ 
+El registro de dispositivos consta de otorgar la información necesaria
+del dispositivo como: nombre, dirección del orion context broker,
+protocolo de comunicación, agente IoT y las lecturas.
+ 
+Paso 5 dar click en el botón agregar dispositivo.
+ 
 paso 6 llenar el formulario del dispositivo.
-
+ 
 paso 7 dar click en registrar.
+
+.. image:: images/device.PNG
