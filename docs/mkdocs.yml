@@ -4,11 +4,11 @@ nav:
   - Introducción: 'index.md'
   - 'Sistema':
     - Módulo de gestor: 'gestor.rst'
-    - Módulo de conexión: 'conexión.md'
-    - Módulo de receptor de información: 'receptor.md'
+    - Módulo de conexión: 'conexión.rst'
+    - Módulo de receptor de información: 'receptor.rst'
   - 'Manual de usuario':
-    - Sistema web: 'sistema.md'
-    - Servidor FIWARE: 'servidor.md'
+    - Sistema web: 'sistema.rst'
+    - Servidor FIWARE: 'servidor.rst'
 
 
 theme: readthedocs
