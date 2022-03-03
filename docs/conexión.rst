@@ -70,8 +70,8 @@ Paso 1 Paso 1- dar click en botón código FIWARE del dispositivo.
 El sistema despliega la información del dispositivo así como el código
 en yaml necesario para realizar la conexión con fiware.
 
-.. image:: images/codigo fiware.png
+.. image:: images/codigofiware.png
 
 Paso 2 dar click en el botón de descargar.
 
-.. image:: images/descargar 2.png
+.. image:: images/descargar2.png
